@@ -22,7 +22,7 @@ void bubble_sort(int *array, size_t size)
 	/* Iterate through the elements of the array.*/
 	for (n = total_elements; n > 0; n--)
 	{
-		for (i = 0; i < n; i++)
+		for (i = 0; i < n - 1; i++)
 		{
 			/* If the next element is smaller, swap the elements.*/
 			if (array[i] > array[i + 1])
