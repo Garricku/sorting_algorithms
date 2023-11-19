@@ -30,11 +30,10 @@ void insertion_sort_list(listint_t **list)
 			current->next = current->prev;
 			current->prev = current->prev->prev;
 			current->next->prev = current;
-			print_list(list);
 			/* If the previous node is > than the new next node.*/
 			if (current->prev == NULL)
 				sorted = current;
-			print_list(*list);
+			print_list(sorted);
 		}
 		current = temp;
 	}
