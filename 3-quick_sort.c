@@ -10,7 +10,7 @@
  */
 void quick_sort(int *array, size_t size)
 {
-	int total_size = (int)size, i, j, temp, temp2;
+	int total_size = (int)size, i, j, temp, temp2, n = 0;
 
 	/* If the array is a pointer to NULL.*/
 	if (array == NULL)
@@ -20,21 +20,22 @@ void quick_sort(int *array, size_t size)
 	if (size < 1 || total_size < 1)
 		return;
 
-	while (i < total_size)
+	temp = array[0];
+	while (n < total_size)
 	{
 		/* Compare values.*/
-		for (i = 0; i < total_size; i++)
+		for (i = 0; i < total_size - 1; i++)
 		{
 			/* Swap the values.*/
-			if (!temp && array[i] > array[total_size - (i + 1)])
+			if (array[i] > array[total_size - (i + 1)])
 			{
-				j = total_size - i + 1;
+				j = total_size - (i + 1);
 				temp = array[i];
 				array[i] = array[j];
 				array[j] = temp;
 				print_array(array, size);
 			}
-			else if (temp < array[i])
+			if (temp < array[i])
 			{
 				temp2 = array[i];
 				array[i] = temp;
@@ -42,5 +43,6 @@ void quick_sort(int *array, size_t size)
 				print_array(array, size);
 			}
 		}
+		n++;
 	}
 }
