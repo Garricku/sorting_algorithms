@@ -27,7 +27,7 @@ void selection_sort(int *array, size_t size)
 	/* Iterate through the elements.*/
 	while (n < total_size)
 	{
-		for (i = n; i < total_size; i++)
+		for (i = n; i < total_size - 1; i++)
 		{
 			if (smallest > array[i + 1])
 			{
