@@ -11,6 +11,7 @@
 void selection_sort(int *array, size_t size)
 {
 	int i, n = 0, smallest, temp, index_removed, total_size = (int)size;
+	int swap;
 
 	/* If the array is empty or doesn't exsist.*/
 	if (array == NULL)
@@ -22,23 +23,29 @@ void selection_sort(int *array, size_t size)
 
 	smallest = array[n];
 	index_removed = 0;
+	swap = 0;
 	/* Iterate through the elements.*/
 	while (n < total_size)
 	{
-		while (i < total_size - 1)
+		for (i = n; i < total_size; i++)
 		{
-			/* Swap the values.*/
-			if (i >= n && smallest > array[i + 1])
+			if (smallest > array[i + 1])
 			{
 				index_removed = i + 1;
 				smallest = array[i + 1];
+				swap = 1;
 			}
-			i++;
 		}
-		temp = array[n];
-		array[n] = smallest;
-		array[index_removed] = temp;
-		print_array(array, size);
-		n += 1;
+		/* Swap the values.*/
+		if (swap == 1)
+		{
+			temp = array[n];
+			array[n] = smallest;
+			array[index_removed] = temp;
+			print_array(array, size);
+		}
+		n++;
+		smallest = array[n];
+		swap = 0;
 	}
 }
